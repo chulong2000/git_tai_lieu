@@ -1,0 +1,321 @@
+
+Collection là một đối tượng lưu trữ nhiều giá trị liên quan. Mỗi giá trị trong 1 tập hợp được gọi là phần tử.
+Sequence (chuỗi) thì sẽ lưu trữ các phần tử theo thứ tự để có thể truy cập phần tử theo vị trí.
+Chọn Array khi tập hợp là cố định, độ dài của mảng không thể thay đổi sau khi đã tạo và có thể thay thế phân tử tại 1 vị trí hiện có.
+           truy cập phần tử của mảng thông qua index (chỉ số) bắt đầu từ 0.
+Chọn List là một tập hợp lưu trữ các phần tử theo thứ tự, có thể tăng hoặc giảm kích thước trong quá trình chạy chương trình.
+           sử dụng Add để thêm phần tử
+           Remove để xóa phần tử
+           Contain để kiểm tra phân tử có tồn tại trong mảng không
+           IndexOf để xem vị trí của phần tử trong mảng.
+           Sử dụng Insert để thêm 1 phần tử vào 1 vị trí cụ thể.
+           Sử dụng INsertRange để thêm nhiều phần tử vào 1 vị trí cụ thể.
+           Sử dụng RemoveAt để xóa phần tử theo chỉ mục (index)
+Chọn Dictionary<Key,value> lưu trữ các cặp key/value. Một key/value là 1 khóa và 1 giá trị được liên kết với khóa đó.
+                           Sử dụng chỉ mục của dictionary để thêm hoặc cập nhập giá trị theo khóa
+List<T> và Dictionary<Key, Value> là generic type là kiểu dữ liệu sử dụng 1 đối số kiểu chỉ định xác định kiểu dữ liệu mà nó lưu trữ.
+
+
+
+Class 
+
+Chưa hiểu hết được properties của 1 class, chưa hiểu hết lambda expression
+
+!!editing?
+
+Các kiểu ủy quyền tích hợp sẵn 
+Func với khi dùng phương thức trả về giá trị.
+Tham số nào mà không cần đến trong delegate type Func thì chuyển sang "_"
+Action khi phương thức đây không trả về giá trị.
+
+Nội dung đã đọc chưa hiểu: 
+public JobPosition JobPosition { get; set; } = null!;       
+
+Interface là 1 nhóm bao gồm các method, properties, event và indexers mà 1 class hoặc struct phải triển khai.
+Các lớp hoăc struct triển khai giao diện thì phải cung cấp toàn bộ phần triển khai cho toàn bộ các thành viên được khai báo trong giao diện.
+Một lớp có thể triển khai nhiều giao diện và nó phải cung cấp phần triển khai cho tất cả giao diện mà nó liệt kế.
+Khi 2 interface chứa các thành viên có cùng tên với nhau thì lớp triển khai sẽ xác định triển khai cho interface nào thông qua tên interface dấu chấm và kết hợp với tên thành viên
+Sruct thì không thể kế thừa từ struct hay class khác nên interface là 1 cách để chia sẻ hành vi giữa các kiểu structs khác nhau.
+Interface có thể kế thừa từ 1 hay nhiều interface khác và các lớp triển khai từ interface này sẽ triển khai cả thành viên mà interface đó kế thừa.
+
+Enum là kiểu dữ liệu chưa tập hợp các hằng số đã được đặt tên.
+Ví dụ mẫu về interface: 
+interface IEquatable<T> 
+{
+   bool Equals(T obj)
+}
+
+Định nghĩa 1 giao diện bằng từ khóa interface và quy ước đặt tên là bắt đầu bằng chứ I.
+
+Generic là một kiểu dữ liệu cho phép viết mã hoạt động với bất kỳ kiểu dữ liệu nào.
+VD: Collections, async return type, delegates, LINQ tất cả đều được xây dựng dựa trên kiểu generics
+
+Generic collection: List, Dictionary, HashSet, Queue
+Generic method -- trình biên dịch sẽ suy luận kiểu dữ liệu của tham số từ kiểu dữ liệu truyền vào.
+Tuple được dùng để nhóm nhiều giá trị thành 1 cấu trúc duy nhất, gọn nhẹ mà không cần phải định nghĩa 1 kiểu dữ liệu cụ thể.
+     được dùng để nhóm các dữ liệu có thời gian sử dụng ngắn.
+     Các cách được dùng để khai báo và khởi tạo 1 tuple
+     VD: (string Name, int Age) person = ("Alice", 30);
+         (string, int) unnamed = ("Bob", 25);
+         var city = (Name: "Seattle", Population: 749_256);
+    So sánh sự bằng của tuple bằng cách sử dụng toán tử == hoặc != 
+Conversion là quá trình chuyển đổi giá trị từ kiểu dữ này sang kiểu khác.
+Cast là cú pháp được dùng để chuyển đổi từ kiểu dữ này sang kiểu dữ liệu khác.
+A implicit conversion là quá trình chuyển đổi kiểu dữ liệu 1 cách tự động.
+A explicit cast là quá trình chuyển đổi kiểu dữ liệu bằng cách tự viết mã.
+
+Boxing là quá trình chuyển đổi từ kiểu value type sang kiểu reference type, 
+UnBoxing là quá trình chuyển đổi từ kiểu reference type sang value type
+
+Biểu thức lamda là một hàm được tạo trực tiếp và ngắn gọn mà không cần đặt tên.
+Expression lamda chia thành tham số và phần xử lý logic trong thân hàm bằng dấu =>
+Khi không có tham số và nhiều hơn 1 tham số thì sẽ đặt trong dấu cách.
+
+Delegate type là kiểu dữ liệu ủy quyền, là kiểu dữ liệu được dùng để mô tả kiểu dữ liệu của tham số và kiểu dữ liệu trả về cho biểu thức lamda
+Các kiểu dữ liệu ủy quyền được xây dựng sẵn: Func -- sẽ trả về giá trị, Action -- không trả về giá trị.
+Tham số discard(_) tham số nào mà không cần dùng đến trong biểu thức lamda thì sẽ để là _
+
+Anonymous types là kiểu dữ liệu ẩn danh
+Cách để tạo ra 1 kiểu dữ liệu ẩn danh VD var person = new { Name = "Alice", Age = 30 };
+So sánh giá trị giữa 2 kiểu Anonymous bằng method Equal và chỉ trả về true mà giữa 2 đối tượng cùng tên thuộc tính và giá trị của từng thuộc tính phải bằng nhau và cùng kiểu.
+
+C# null safety
+
+Các kiểu giá trị có thể null (Nullable type value)
+dấu ? để các giá trị của kiểu giá trị có thể nhận giá trị null.
+VD: viết thêm int?, double?,....
+
+?? :kiểm tra nếu giá trị khác null thì sẽ trả về giá trị đấy còn nếu null thì sẽ trả về giá trị mặc định
+?? == GetValueOrDefault
+
+
+Nullable type reference
+
+String là một chuỗi ký tự, string là reference type (kiểu tham chiếu), giá trị của là bất biến tức là sau khi khởi tạo sẽ không thể thay đổi giá trị của đối tượng.
+StringBuilder được dùng để cập nhập chuỗi mà ko tạo ra chuỗi mới sau mỗi lần cập nhập.
+Có nhiều cách để biểu diễn 1 chuỗi string: dùng dấu "", """""", @, $ 
+Khi so sánh string với toán tử == thì sẽ so sánh giá trị thực chứ không phải so sánh địa chỉ.
+
+String interpolation (chuỗi nội suy) cho phép thêm biểu thức  trực tiếp vào bên trong 1 chuỗi bằng việc bắt đầu chuỗi với $
+đoạn mã trong dấu {} được gọi là biểu thức nội suy an interpolation expression 
+
+Expression là đoạn mã mà trình biên dịch đánh giá để tạo ra 1 giá trị.
+
+C# Equality comparisons 
+
+Value equality hai thể hiện được coi là bằng nhau khi dữ liệu của chúng khớp nhau.
+Reference equality hai thể hiện được coi là bằng nhau khi chúng cùng trỏ đến cùng 1 đối tượng trong bộ nhớ.
+
+Các kiểu dữ liệu về số đã được xây dựng sẵn và kiểu Enum được coi là bằng nhau khi giá trị của chúng trùng khớp nhau.
+Kiểu struct được coi là bằng nhau khi giá trị của nó bằng nhau.
+Kiểu Class được coi là bằng nhau nếu 2 biến hoặc thể hiện cùng trỏ tới 1 đối tượng trong bộ nhớ.
+Kiểu Tuple được coi là bằng nhau khi  giá trị theo thứ tự của chúng khớp nhau.(tên biến khác nhau không ảnh hưởng đến quá trình so sánh)
+
+Với Struct, method Equals sẽ so sánh theo dữ liệu giữa 2 thể hiện.
+Với Class, ==  hoặc Equals sẽ kiểm tra xem 2 biến có cùng trỏ đến 1 đối tượng trong bộ nhớ hay không.
+
+Phương thức ReferenceEquals luôn so sánh 2 thể hiện có cùng trỏ đến cùng 1 object trong bộ nhớ hay không kể cả khi đã ghi đè toán tử == hoặc method Equals
+toán tử == hoặc method Equal có thể bị ghi đè.
+
+Chuôi là một class nhưng == và Equals là so sánh nội dung chứ không so sánh xem có cùng trỏ đến 1 đối tượng trong bộ nhớ.
+
+Font-End: 
+Props là tham số được truyền vào trong các components.
+
+
+Bạn hãy làm theo hướng server-serverside giúp tôi vì tôi đã chỉnh sửa lại API getAll để lấy dữ liệu theo lọc, phân trang hay là search rồi.
+Filter theo cột cụ thể kiểu dropdown (antd Table hỗ trợ sẵn filters trên từng cột)
+multi-sort 
+làm trước tiên cho 1 page là EducationPage giúp tôi 
+
+Các hướng xử lý khi xóa dữ liệu: 
+1.  Chặn xóa (Block): Khi xóa 1 phần tử A mà phẩn tử A đang bao gồm phần tử B và C thì sẽ báo lỗi không được phép xóa, nếu muốn xóa thì phải xóa các phần tử con trước rồi mới xóa được phần tử A.
+2.  Cascade (Xóa lan xuống): Khi xóa A thì sẽ tự động xóa luôn toàn bộ phần tử con của A.
+
+Race condition?????
+
+Union là kết hợp dữ liệu giữa các truy vẫn khác nhau.
+
+git rm -r --cached DemoApi/bin DemoApi/obj DemoApi/.vs
+
+with là mệnh đề được dùng để đặt tên cho 1 tập hợp kết quả tạm thời (được biết như là Common table expression)
+
+CTE cho phép tham chiếu đến chính nó để tạo ra CTE đệ quy.
+
+
+LINQ là một tính năng của C# dùng để truy vấn dữ liệu bằng cú pháp C#.
+2 kiểu để biểu diễn: LINQ query expression syntax (cú pháp biểu thức truy vấn)
+                     LINQ method syntax (cú pháp phương thức)
+
+Định nghĩa Class, Struct giống như một bản thiết kế quy định những gì kiểu dữ liệu đó có thể làm.
+Một đối tượng là một khối bộ nhớ mà chương trình cấp phát và cấu hình theo bản thiết kế đó.
+Đối tượng cũng có thể được gọi là instance (thể hiện)
+Tạo ra thể hiện của class hoặc struct sử dụng từ khóa new.
+
+Tính kế thừa khi 1 class kế thừa từ một lớp khác, lớp kế thừa sẽ tự động có các thành viên của lớp cơ sở ngoại trừ hàm tạo và hàm hủy.Nếu lớp cơ sở có method ảo (virtual) thì lớp dẫn xuất có thể ghi đè lại method này.
+Nếu lớp cơ sở có chứa thành phần trừu tượng thì phải được ghi đè bởi lớp không phải là trừu tượng và kế thừa trực tiếp từ lớp đó.Nếu lớp dẫn xuất là lớp trừu tượng thì nó sẽ kế thừa mà ko cần triển khai các thành phần trừu tượng.
+Dùng sealed khi muốn 1 class không bị kế thừa từ các class khác.
+Khi định nghĩa các phương thức và thuộc tính mới nếu mà bạn muốn ngắn không ghi đè thì không khai báo chúng với virtual.
+Các trường dữ liệu thì không thể dùng virtual
+
+Khi mà ghi đè 1 thành viên virtual được ghi đè từ 1 lớp cơ sở, bạn có thể ngăn không cho 1 class khác ghi đè lại thành viên này bằng cách dùng sealed ;
+Nếu muốn chặn tạo 1 đối tượng trực tiếp bắng cách sử dụng từ khóa new thì khai báo 1 lớp là abstract
+
+Tính đa hình: 
+Khi muốn tạo 1 thành viên của lớp dẫn xuất cùng tên với thành viên của lớp cơ sở thì sử dụng new
+Từ khóa new khi muốn tạo một phương thức ẩn đi phương thức của lớp cơ sở thay vì ghi đè lên nó. Với từ khóa new, thì xác định phương thức được gọi của biến tại thời điểm biên dịch, chứ không phải kiểu dữ liệu của đối tượng tại thời điểm chạy.
+Khi lớp dẫn xuất muốn truy cập đến phương thức của lớp cha sử dụng từ khóa base.
+ 
+
+Discards là các biến chưa được gán và chúng không có giá trị, được dùng để báo cho trình biên dịch và người đọc mã rằng bạn không lấy kết quả này thì 1 biểu thức.
+Khi nào dùng Discards : khi mà bạn không muốn lấy ra giá trị trả về kết quả của 1 biểu thức hay giá trị theo kiểu tuple.
+                        được dùng để bỏ qua các giá trị khi phân ra kiểu tuple.
+                        Được dùng khi phân rã kiểu đối tượng (class, struct, interface -- để phân rã thì phải triển khai phương thức Deconstruct)
+                        được dùng trong biểu thức switch để trả về các điều kiện còn lại trong mệnh đề switch.
+                        Có thể được dùng với tham số truyền vào đi kèm với out để không lấy kết quả trả về này.
+                        Có thể được sử dụng khi không muốn gán trị vào 1 biến cụ thể ( _ = arg ?? throw new ArgumentNullException(paramName: nameof(arg), message: "arg can't be null");)
+                        Khi khai báo int _ thì nó vẫn hợp lệ và nó vẫn là 1 biến bình thường.
+
+Phân rã tuple và các kiểu dữ liệu khác: 
+                        Cú pháp để phân tách 1 kiểu dữ liệu tuple (3 cách) 
+                           VD : (string city, int population, double area) = QueryCityData("New York City");
+                           var (city, population, area) = QueryCityData("New York City");
+                           (string city, var population, var area) = QueryCityData("New York City");
+                           (city, population, double area) = QueryCityData("New York City");
+                                                                           
+                                                                       
+                       Loại bỏ giá trị trả về từ tuple VD:  var (_, _, _, pop1, _, pop2) = QueryCityDataForYears("New York City", 1960, 2010);
+
+      Các kiểu dữ liệu do người dùng định nghĩa được phân rã bằng cách triển khai 1 hoặc nhiều phương thức Deconstruct: phương thức trả về void và các tham số out đại diện cho 1 giá trị trả về.
+      vẫn có thể sử dụng discard để loại bỏ đi các phần tử phân rã không cần thiết.
+                       VD: var (fName, _, city, _) = p;
+                           Console.WriteLine($"Hello {fName} of {city}!");
+
+Exception : Ngoại lệ có thể tạo ra bởi môi trường thực thi ngôn ngữ (CLR), thư viện .NET, thư viện bên thứ ba hoặc mã ứng dụng.
+            Tạo ra ngoại lệ băng từ khóa Throw.
+            Các ngoại lệ đều kế thừa từ Exception (Lớp này xác định loại ngoại lệ và thông tin chi tiết về ngoại lệ này)
+            Việc ném ra ngoại lệ bao gồm tạo ra 1 thể hiện của ngoại lệ và cấu hình các thuộc tính của ngoại lệ và ném ra bằng cách sử dụng từ khóa throw.
+ Sau khi 1 ngoại lệ được ném ra, nó sẽ kiểm tra câu lệnh có nằm trong khối try nào không ---> Nếu có nó bất kỳ khối catch liên kết với khối try sẽ được kiểm tra xem có xử lý được ngoại lệ hay không
+                                                                                         ---> Khối lệnh bên trong catch sẽ được thực thi nếu ngoại của khối catch cùng kiểu với ngoại lệ hoặc ngoại lệ khối catch là lớp cơ sở của ngoại lệ.
+           với 1 try thì có thể kết hợp với nhiều khối catch, nếu có exception xảy ra thì nó sẽ chỉ chạy vào đoạn catch đầu tiên phù hợp với exception còn các exception đằng sau có kiểu dữ liệu liên quan thì cũng không được thực thi.
+
+           Khối try được dùng để bọc đoạn code có thể tạo ra exception
+           Khối catch +) được dùng để bao gồm đoạn code xử lý exception.
+                      +) được dùng để chỉ định loại ngoại lệ cần bắt--> việc này còn được gọi là bộ lọc ngoại lệ
+                      +) loại ngoại lệ phải được kế thừa từ lớp Exception.
+                      +) Có thể tạo nhiều khối catch để xử lý ngoại lệ cho 1 khối try. 
+                         Cách khối catch sẽ được đánh giá từ trên xuống dưới và chỉ 1 khối catch đầu tiên khớp kiểu hoặc là lớp cơ sở của kiểu ngoại lệ đấy sẽ được thực thi.
+                      +) có thể sử dụng expression bool cho exception filter với mệnh đề clause
+                         VD:  try
+                                {
+                                  return array[index];
+                                }
+                                catch (IndexOutOfRangeException e) when (index < 0) 
+                                {
+                                   throw new ArgumentOutOfRangeException(
+                                       "Parameter index cannot be negative.", e);
+                                }
+                                catch (IndexOutOfRangeException e)
+                                {
+                                   throw new ArgumentOutOfRangeException(
+                                   "Parameter index cannot be greater than the array size.", e);
+                                }
+           KHối finally chứa mã thực thi bất kể có ngoại lệ được ném ra hay không hoặc catch có tìm thấy ngoại lệ khớp với nó hay không.
+                        có thể được sử dụng để giải phóng tài nguyên như luông tệp, đóng cơ sở dữ liệu.
+           theo sau 1 khối try có thể bao gồm nhiều khối catch và 1 finally 
+           
+Các ngoại lệ chứa một thuộc tính có tên là StackTrace . 
+Chuỗi này chứa tên của các phương thức trên ngăn xếp cuộc gọi hiện tại, cùng với tên tệp và số dòng nơi ngoại lệ được ném ra cho mỗi phương thức. 
+Một đối tượng StackTrace được tạo tự động bởi môi trường thực thi ngôn ngữ chung (CLR) từ điểm của throwcâu lệnh, do đó các ngoại lệ phải được ném ra từ điểm mà dấu vết ngăn xếp nên bắt đầu.
+
+Danh sách sau đây nêu ra các quy tắc cần xem xét khi ném ngoại lệ:
+
+Không nên sử dụng ngoại lệ để thay đổi luồng thực thi của chương trình trong quá trình thực hiện thông thường. Hãy sử dụng ngoại lệ để báo cáo và xử lý các điều kiện lỗi.
+Không nên trả về ngoại lệ dưới dạng giá trị trả về hoặc tham số thay vì ném ra ngoại lệ đó.
+Không nên cố ý ném ra các ngoại lệ System.Exception , System.SystemException , System.NullReferenceException hoặc System.IndexOutOfRangeException từ mã nguồn của chính bạn.
+Không nên tạo ra các ngoại lệ có thể được ném ra ở chế độ gỡ lỗi nhưng không thể ném ra ở chế độ phát hành. Để xác định lỗi thời gian chạy trong giai đoạn phát triển, hãy sử dụng Debug Assert thay thế.
+           
+Định nghĩa thêm các lớp ngoại lệ bằng cách tạo các class mới kế thừa từ Exception.
+
+An identifies là tên được dùng để đặt cho các type, biến, thành viên, namespace.
+
+dấu ? được dùng để hiểu giá trị của 1 biến có thể là null/
+
+kế thừa là một trong trong những thuộc tính cơ bản của lập trình hướng đối tượng, cho phép 1 lớp kế thừa, mở rộng và sửa đổi hành vi của lớp cha.
+C# và .NET chỉ hỗ trợ đơn kế thừa, nhưng cho phép bắc cầu tạo thành 1 hệ thống kế thừa phân cấp.
+
+Nội dung ngày 16/09/2026
+
+# Kế thừa trong C# và .NET — Nội dung chính cần nắm
+ 
+## 1. Khái niệm cơ bản
+ 
+- Kế thừa cho phép định nghĩa một **lớp cơ sở** (base class) cung cấp chức năng dùng chung, và các **lớp dẫn xuất** (derived class) kế thừa, mở rộng hoặc ghi đè chức năng đó.
+- C# và .NET chỉ hỗ trợ **kế thừa đơn**: một lớp chỉ có thể kế thừa từ một lớp duy nhất.
+- Kế thừa có **tính bắc cầu**: nếu D kế thừa C, C kế thừa B, B kế thừa A → D vẫn dùng được các thành viên của A.
+## 2. Các thành viên KHÔNG được kế thừa
+ 
+- Constructor tĩnh (static constructor)
+- Constructor thể hiện (instance constructor) — mỗi lớp bắt buộc phải tự định nghĩa constructor riêng
+- Phương thức finalizer (được garbage collector gọi để hủy đối tượng)
+## 3. Khả năng truy cập ảnh hưởng đến tính kế thừa
+ 
+| Access modifier | Hiển thị với lớp dẫn xuất khi nào |
+|---|---|
+| `private` | Chỉ trong lớp lồng nhau (nested class) nằm trong lớp cơ sở |
+| `protected` | Chỉ trong các lớp dẫn xuất |
+| `internal` | Chỉ lớp dẫn xuất nằm cùng assembly với lớp cơ sở |
+| `public` | Luôn hiển thị, trở thành một phần giao diện công khai của lớp dẫn xuất |
+ 
+## 4. Các từ khóa điều khiển việc ghi đè (override)
+ 
+- **`virtual`** — đánh dấu trên lớp cơ sở, cho phép lớp dẫn xuất **tùy chọn** ghi đè. Mặc định các thành viên **không** phải `virtual` và **không thể** bị ghi đè (cố ghi đè → lỗi biên dịch CS0506).
+- **`abstract`** — đánh dấu trên lớp cơ sở, **bắt buộc** mọi lớp dẫn xuất cụ thể phải cung cấp cách triển khai (không triển khai → lỗi CS0534). Lớp chứa thành viên `abstract` cũng phải được đánh dấu `abstract`, và **không thể khởi tạo trực tiếp** (lỗi CS0144 nếu cố `new`).
+- **`sealed`** — đánh dấu trên lớp dẫn xuất, ngăn nó trở thành lớp cơ sở cho bất kỳ lớp nào khác (cố kế thừa từ lớp `sealed` → lỗi CS0509).
+## 5. Kế thừa chỉ áp dụng cho class và interface
+ 
+`struct`, `delegate`, `enum` **không** hỗ trợ kế thừa (dù struct vẫn có thể triển khai interface).
+ 
+## 6. Kế thừa ngầm định (implicit inheritance)
+ 
+Mọi kiểu dữ liệu trong .NET đều ngầm kế thừa từ `Object` (trực tiếp hoặc gián tiếp):
+ 
+| Loại kiểu | Kế thừa ngầm từ |
+|---|---|
+| class | `Object` |
+| struct | `ValueType`, `Object` |
+| enum | `Enum`, `ValueType`, `Object` |
+| delegate | `MulticastDelegate`, `Delegate`, `Object` |
+ 
+Nhờ đó, mọi class (kể cả class rỗng) đều tự động có sẵn các thành viên như `ToString`, `Equals`, `GetHashCode`, `GetType`, `Finalize`, `MemberwiseClone`, và một constructor mặc định do compiler tự sinh.
+ 
+## 7. Mối quan hệ "is-a" (kế thừa) vs "can-do" (interface)
+ 
+- **"is-a"** (kế thừa): lớp dẫn xuất **là một loại chuyên biệt** của lớp cơ sở — ví dụ `Book` **là một** `Publication`.
+- **"can-do"** (interface): thể hiện một tập hợp năng lực/khả năng (so sánh, sắp xếp, định dạng...) mà kiểu triển khai cung cấp, không phải quan hệ phân loại.
+- "is-a" cũng áp dụng ở cấp độ **thể hiện cụ thể**: không nhất thiết phải tạo lớp con riêng cho mỗi biến thể — nhiều khi chỉ cần tạo instance với dữ liệu khác nhau của cùng một lớp là đủ.
+## 8. Nguyên tắc thiết kế lớp cơ sở và lớp dẫn xuất
+ 
+Khi thiết kế, cần quyết định:
+- Thành viên nào nên đưa vào lớp cơ sở để tối đa hóa khả năng tái sử dụng mã (tránh lặp code ở nhiều lớp con)
+- Hệ thống phân cấp kế thừa nên sâu bao nhiêu tầng
+- Lớp cơ sở có nên là `abstract` hay không (nếu việc khởi tạo trực tiếp không có ý nghĩa thực tế)
+- Thành viên nào nên là `virtual` (cho phép ghi đè tùy chọn) hay `abstract` (bắt buộc triển khai)
+- Lớp dẫn xuất có nên đánh dấu `sealed` để kết thúc chuỗi kế thừa hay không
+## 9. Hai kiểu lớp cơ sở thường gặp
+ 
+- **Lớp cơ sở có cài đặt sẵn** (như `Publication`): cung cấp logic dùng chung thực sự (constructor với validate, các phương thức có cài đặt cụ thể) để lớp con tái sử dụng, giảm trùng lặp code.
+- **Lớp cơ sở trừu tượng thuần túy** (như `Shape`): chỉ đóng vai trò khuôn mẫu, mọi thành viên đều `abstract`, buộc mỗi lớp con tự cung cấp công thức/cách triển khai riêng vì không có logic chung nào áp dụng được cho mọi lớp con.
+## 10. Các kỹ thuật constructor liên quan đến kế thừa
+ 
+- **Gọi `base(...)`**: constructor của lớp dẫn xuất gọi constructor của lớp cơ sở để chuyển tiếp tham số, đảm bảo lớp cơ sở được khởi tạo đúng trước khi lớp dẫn xuất thực hiện phần riêng của nó.
+- **Gọi `this(...)`** (constructor chaining): một constructor gọi sang constructor khác cùng lớp (thường có nhiều tham số hơn) để tránh lặp lại logic khởi tạo/validate.
+- Nếu không gọi `base(...)` một cách tường minh, compiler tự động chèn lệnh gọi đến constructor mặc định (không tham số) của lớp cơ sở — nếu lớp cơ sở không có constructor như vậy, bắt buộc phải khai báo `base(...)` rõ ràng.
+## 11. Đa hình (polymorphism) — hệ quả quan trọng của kế thừa
+ 
+- Một đối tượng của lớp dẫn xuất có thể được dùng ở bất kỳ đâu yêu cầu kiểu lớp cơ sở (ví dụ: truyền `Book` vào hàm nhận tham số `Publication`).
+- Khi gọi một thành viên đã bị ghi đè (`override`) thông qua tham chiếu kiểu lớp cơ sở, tại **runtime** C# luôn gọi đúng phiên bản đã ghi đè của kiểu thực tế (dynamic dispatch) — dù khai báo biến là kiểu cơ sở.
+- Muốn truy cập thành viên riêng chỉ có ở lớp con (không có ở lớp cơ sở), cần dùng pattern matching để ép kiểu an toàn (ví dụ: `if (shape is Rectangle rect) { ... rect.Diagonal ... }`).
+## 12. Quy tắc bắt buộc khi ghi đè `Equals`
+ 
+Nếu ghi đè `Object.Equals(Object)` để thay đổi logic so sánh bằng nhau (ví dụ: so sánh theo một trường định danh riêng thay vì so sánh tham chiếu mặc định), **bắt buộc phải ghi đè `GetHashCode`** theo cùng logic đó — nếu không, đối tượng sẽ hoạt động sai khi dùng trong các tập hợp băm như `Dictionary`, `HashSet`.
